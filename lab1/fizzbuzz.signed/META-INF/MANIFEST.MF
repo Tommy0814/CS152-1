@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_171 (Oracle Corporation)
+
+Name: codecheck.log
+SHA-256-Digest: 8UVCJSTIZ3KOnavkA4hiuUa1+OG5Q/6ge0csi6E5g/8=
+
+Name: report.html
+SHA-256-Digest: EIWO+Jhrw4VRuUxeM/7c/FQ706fWfL/4shhS3pf5eeg=
+
+Name: fizzbuzz.rkt
+SHA-256-Digest: duJtcqNPyXrsR88MUvAK5U9L8LiSTlxlt3zM+m6CZdU=
+
+Name: codecheck.out
+SHA-256-Digest: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+

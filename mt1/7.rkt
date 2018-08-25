@@ -1,0 +1,14 @@
+#lang racket
+
+(define (largest-elem lst)
+  (cond [(empty? lst) (error "empty")]
+        [(= 1 (length lst)) (car lst)]
+        [else
+         (let ([x (car lst)]
+               [m (largest-elem [cdr lst])])
+               (if (> x m)
+                   x
+                   m))]))
+
+(largest-elem '(9 0 42 1 6)) ;; evaluates to 42
+(largest-elem '(-2 -8 -865)) ;; evaluates to -2

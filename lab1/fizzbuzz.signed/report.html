@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Submission" content="/tmp/codecheck/18060824405577057202610633818"/>
+<meta name="Time" content="2018-06-08T00:40:27Z"/>
+<meta name="ID" content="fizzbuzz"/>
+<meta name="User" content="18060722033blp000taxvcwf84jriqlyovn"/>
+<meta name="Problem" content="ext/180604071093k7e1v390ruzr5vf5ph7nskx"/>
+<meta name="Elapsed" content="1226 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+.note {color: blue; font-weight: bold;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header call">Calling with Arguments</p>
+<div class="call">
+<table class="run">
+<tr><th>&#160;</th><th>Name</th><th>Arguments</th><th>Actual</th><th>Expected</th></tr>
+<tr><td><span class="fail">fail </span></td>
+<td><pre>fizzbuzz</pre></td>
+<td><pre>9</pre></td>
+<td><pre>"1 2 fizz 4 buzz fizz 7 8 fizz "</pre></td>
+<td><pre>"1 2 fizz 4 buzz fizz 7 8 fizz "#&lt;void&gt;</pre></td>
+</tr>
+<tr><td><span class="fail">fail </span></td>
+<td><pre>fizzbuzz</pre></td>
+<td><pre>21</pre></td>
+<td><pre>"1 2 fizz 4 buzz fizz 7 8 fizz buzz 11 fizz 13 14 fizzbuzz 16 17 fizz 19 buzz fizz "</pre></td>
+<td><pre>"1 2 fizz 4 buzz fizz 7 8 fizz buzz 11 fizz 13 14 fizzbuzz 16 17 fizz 19 buzz fizz "#&lt;void&gt;</pre></td>
+</tr>
+</table>
+</div>
+<p class="header studentFiles">Submitted files</p>
+<div class="studentFiles">
+<p class="caption">fizzbuzz.rkt:</p>
+<pre>#lang racket
+(provide fizzbuzz)
+
+;; The function counts from 1 to the specified number, printing a string with the result.
+;; The rules are:
+;;    If a number is divisible by 3 and by 5, instead say "fizzbuzz"
+;;    Else if a number is divisible by 3, instead say "fizz"
+;;    Else if a number is divisible by 5, instead say "buzz"
+;;    Otherwise say the number
+;;
+(define (fizzbuzz n)
+  (define (helper s c n) ; string/current/number
+    (cond [(= 0 (modulo c 3)) (if (= 0 (modulo c 5))
+                                  (set! s (string-append s "fizzbuzz ")) ; fizzbuzz
+                                  (set! s (string-append s "fizz ")))] ; fizz
+          [(= 0 (modulo c 5)) (set! s (string-append s "buzz "))] ; buzz
+          [else (set! s (string-append s (number-&gt;string c) " "))]) ; number
+    (cond [(= c n) s] ; return
+          [else (helper s (+ c 1) n)])) ; recurse
+  
+  (if (&gt; n 0)
+      (helper "" 1 n)
+      #f))
+</pre>
+</div>
+<p class="header score">Score</p>
+<div class="score">
+<p class="score">0/2</p>
+</div>
+<div class="footnotes"><div class="footnote">2018-06-08T00:40:27Z</div>
+</div>
+</body></html>

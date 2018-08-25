@@ -1,0 +1,7 @@
+#lang racket
+
+(define (sort-descending lst)
+
+  (sort lst (λ (x y) (> x y))))
+
+(sort-descending '(1 99 3 2 45 6 -1 5 0 2))
